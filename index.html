@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Medidas relativas na web</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📐</text></svg>"
+    />
+    <meta
+      name="description"
+      content="Aprenda definitivamente as principais diferenças e utilidades entre as
+      unidades de medida utilizadas na web, e descubra como elas podem te
+      ajudar e muito ao criar designs responsivos."
+    />
+    <style>
+      body {
+        max-width: 1024px;
+        margin: 0 auto;
+      }
+
+      .hands-on {
+        > div {
+          display: flex;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Medidas relativas na web</h1>
+      <p>
+        Aprenda definitivamente as principais diferenças e utilidades entre as
+        unidades de medida utilizadas na web, e descubra como elas podem te
+        ajudar
+        <strong>e muito</strong> ao criar designs responsivos.
+      </p>
+    </header>
+    <main>
+      <article>
+        <h1>"<em>em</em>" e "<em>rem</em>"</h1>
+        <p>
+          As unidades de medida "<em>em</em>" e "<em>rem</em>" são utilizadas em
+          folhas de estilo CSS para definir tamanhos relativos. Ambas são
+          unidades de medida relativa, o que significa que o tamanho é calculado
+          com base em algum valor de referência.
+        </p>
+        <h2>
+          A diferença fundamental entre as unidades "em" e "rem" é o ponto de
+          referência ao qual elas estão relacionadas:
+        </h2>
+        <ol>
+          <li>
+            <em>em</em>: A unidade "em" é relativa ao tamanho da fonte
+            (<em>font-size</em>) do elemento pai. Isso significa que se você
+            definir um elemento com um tamanho de fonte de 16 pixels e definir
+            um valor de 2em para outro elemento dentro desse primeiro elemento,
+            o tamanho será o dobro à fonte do elemento pai, ou seja, 32 pixels.
+          </li>
+          <li>
+            <em>rem</em>: A unidade "rem" é relativa ao tamanho da fonte do
+            elemento raiz (<em>&lt;html&gt;</em>). Se o tamanho da fonte do
+            navegador for 16 pixels e você definir um valor de 1rem, ele será
+            igual a 16 pixels, independentemente de qualquer tamanho de fonte
+            definido nos elementos pai.
+          </li>
+        </ol>
+        <p>
+          A principal vantagem do uso de "rem" em vez de "em" é que ela não se
+          acumula de maneira aninhada como o "em". Isso significa que se você
+          definir um tamanho de fonte diferente em um elemento pai, os elementos
+          filhos com unidades "rem" não serão afetados por essa alteração,
+          enquanto os elementos filhos com unidades "em" seriam afetados.
+        </p>
+        <h3>Em resumo:</h3>
+        <ul>
+          <li>"em" é relativo ao tamanho da fonte do elemento pai.</li>
+          <li>"rem" é relativo ao tamanho da fonte do elemento raiz.</li>
+        </ul>
+        <p>
+          A escolha entre "em" e "rem" depende das necessidades do design e do
+          comportamento desejado. O "rem" geralmente é recomendado para o
+          dimensionamento de elementos de layout, enquanto o "em" pode ser útil
+          para ajustes mais granulares que herdam características de tamanho de
+          fonte de elementos pai.
+        </p>
+      </article>
+      <article class="hands-on">
+        <h1>Hands-on: "em" e "rem"</h1>
+        <div>
+          <article class="example">
+            <h1>em</h1>
+            <h2>
+              Todo <span>font-size</span> nesta coluna utilizam <em>em</em>.
+            </h2>
+            <h3>Unidade de medida relativa ao pai</h3>
+            <p>
+              Sou a unidade "em" do CSS. Meu tamanho se baseia no elemento pai,
+              ajustando-se automaticamente se a fonte do pai mudar. Isso é útil
+              para ajustes finos e proporcionais, mas cuidado com aninhamentos
+              excessivos, pois posso amplificar mudanças inesperadas.
+            </p>
+          </article>
+          <article class="example">
+            <h1>rem</h1>
+            <h2>
+              Todo <span>font-size</span> nesta coluna utilizam <em>rem</em>.
+            </h2>
+            <h3>Unidade de medida relativa à raiz</h3>
+            <p>
+              Eu sou o "rem" do CSS. Minha dimensão está ligada à fonte da raiz
+              do documento. Isso garante consistência em todo o layout, pois não
+              sou afetado por mudanças de tamanho de fonte em elementos pai.
+              Minha abordagem é ótima para estruturas de página coesas e
+              dimensionamento previsível.
+            </p>
+          </article>
+        </div>
+      </article>
+    </main>
+  </body>
+</html>
