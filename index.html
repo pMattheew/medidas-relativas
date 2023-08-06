@@ -18,14 +18,182 @@
       ajudar e muito ao criar designs responsivos."
     />
     <style>
+      /* Poppins and Ubuntu fonts */
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
+
+      /** 
+       * Color Theme
+       * https://realtimecolors.com/?colors=000000-ffffff-fbf167-1c5e73-A4E3FA
+       */
+      :root {
+        --primary-color: #fbf167;
+        --secondary-color: #1c5e73;
+        --accent-color: #a4e3fa;
+        --title-font: "Ubuntu", sans-serif;
+        --body-font: "Poppins", sans-serif;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html {
+        background-color: white;
+
+        background: linear-gradient(
+          45deg,
+          rgba(98, 190, 219, 1) 0%,
+          rgba(115, 201, 228, 1) 25%,
+          rgba(144, 212, 235, 1) 50%,
+          rgba(120, 196, 219, 1) 75%,
+          rgba(130, 206, 230, 1) 100%
+        );
+      }
+
       body {
         max-width: 1024px;
         margin: 0 auto;
+        padding: 2em 3em;
+
+        font-family: var(--body-font);
+        font-weight: 300;
+        color: white;
+        line-height: 1.75rem;
+
+        background-color: var(--secondary-color);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: var(--title-font);
+        font-weight: 700;
+      }
+
+      h1 {
+        font-size: 2rem;
+        letter-spacing: 0.05em;
+      }
+
+      .title-icon {
+        margin-right: 0.25em;
+      }
+
+      p {
+        margin-block: 1.75em;
+      }
+
+      header {
+        height: 75svh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        text-align: justify;
+
+        & h1 {
+          text-decoration: underline 0.25em var(--accent-color);
+        }
+
+        & p {
+          padding: 1em;
+          border: solid 0.5em var(--accent-color);
+          border-radius: 1em;
+
+          margin-inline: auto;
+          max-width: 32rem;
+          font-size: 1.125rem;
+        }
+      }
+
+      .em-and-rem {
+        & p {
+          text-align: justify;
+        }
+
+        & ol li {
+          padding-left: 1em;
+          margin-block: 2em;
+        }
+
+        & ul li {
+          padding-left: 0.25em;
+          margin-block: 0.5em;
+        }
+
+        & li::marker {
+          color: var(--accent-color);
+          font-weight: 700;
+        }
       }
 
       .hands-on {
+        margin-top: 4em;
+        padding-bottom: 2em;
+        outline: solid 1em
+          color-mix(in srgb, black 20%, var(--primary-color) 100%);
+        border-radius: 2em;
+        color: black;
+        background-color: var(--primary-color);
+
+        > h1 {
+          text-align: center;
+          padding-block: 4rem;
+          margin-block: 0;
+        }
+
         > div {
           display: flex;
+          justify-content: space-around;
+        }
+      }
+
+      .example {
+        flex: 0.4;
+        background-color: color-mix(
+          in srgb,
+          white 40%,
+          var(--accent-color) 100%
+        );
+
+        & p {
+          text-align: justify;
+        }
+      }
+
+      .em-unit {
+        border: solid 1em var(--accent-color);
+        border-radius: 2em;
+        padding-inline: 2em;
+
+        & h1 {
+          font-size: 2em;
+        }
+
+        & p {
+          font-size: 1em;
+        }
+      }
+
+      .rem-unit {
+        border: solid 1rem var(--accent-color);
+        border-radius: 2rem;
+        padding-inline: 2rem;
+
+        & h2 {
+          font-size: 1.5rem;
+        }
+
+        & h3 {
+          font-size: 1.17rem;
+        }
+
+        & p {
+          font-size: 1rem;
         }
       }
     </style>
@@ -41,29 +209,29 @@
       </p>
     </header>
     <main>
-      <article>
-        <h1>"<em>em</em>" e "<em>rem</em>"</h1>
+      <article class="em-and-rem">
+        <h2><span class="title-icon">💊</span> "em" e "rem"</h2>
         <p>
           As unidades de medida "<em>em</em>" e "<em>rem</em>" são utilizadas em
           folhas de estilo CSS para definir tamanhos relativos. Ambas são
           unidades de medida relativa, o que significa que o tamanho é calculado
           com base em algum valor de referência.
         </p>
-        <h2>
+        <p>
           A diferença fundamental entre as unidades "em" e "rem" é o ponto de
           referência ao qual elas estão relacionadas:
-        </h2>
+        </p>
         <ol>
           <li>
-            <em>em</em>: A unidade "em" é relativa ao tamanho da fonte
+            <strong>em:</strong> A unidade "em" é relativa ao tamanho da fonte
             (<em>font-size</em>) do elemento pai. Isso significa que se você
             definir um elemento com um tamanho de fonte de 16 pixels e definir
             um valor de 2em para outro elemento dentro desse primeiro elemento,
             o tamanho será o dobro à fonte do elemento pai, ou seja, 32 pixels.
           </li>
           <li>
-            <em>rem</em>: A unidade "rem" é relativa ao tamanho da fonte do
-            elemento raiz (<em>&lt;html&gt;</em>). Se o tamanho da fonte do
+            <strong>rem:</strong> A unidade "rem" é relativa ao tamanho da fonte
+            do elemento raiz (<em>&lt;html&gt;</em>). Se o tamanho da fonte do
             navegador for 16 pixels e você definir um valor de 1rem, ele será
             igual a 16 pixels, independentemente de qualquer tamanho de fonte
             definido nos elementos pai.
@@ -76,7 +244,7 @@
           filhos com unidades "rem" não serão afetados por essa alteração,
           enquanto os elementos filhos com unidades "em" seriam afetados.
         </p>
-        <h3>Em resumo:</h3>
+        <h3><span class="title-icon">✍🏾</span> Em resumo:</h3>
         <ul>
           <li>"em" é relativo ao tamanho da fonte do elemento pai.</li>
           <li>"rem" é relativo ao tamanho da fonte do elemento raiz.</li>
@@ -90,9 +258,9 @@
         </p>
       </article>
       <article class="hands-on">
-        <h1>Hands-on: "em" e "rem"</h1>
+        <h1><span class="title-icon">👨🏾‍💻</span>Hands-on: "em" e "rem"</h1>
         <div>
-          <article class="example">
+          <article class="example em-unit">
             <h1>em</h1>
             <h2>
               Todo <span>font-size</span> nesta coluna utilizam <em>em</em>.
@@ -105,7 +273,7 @@
               excessivos, pois posso amplificar mudanças inesperadas.
             </p>
           </article>
-          <article class="example">
+          <article class="example rem-unit">
             <h1>rem</h1>
             <h2>
               Todo <span>font-size</span> nesta coluna utilizam <em>rem</em>.
