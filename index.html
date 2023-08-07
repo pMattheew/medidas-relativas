@@ -21,6 +21,9 @@
       /* Poppins and Ubuntu fonts */
       @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap");
 
+      /* JetBrains Mono font -- NEED TO BE MERGED */
+      @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono&display=swap');
+
       /** 
        * Color Theme
        * https://realtimecolors.com/?colors=000000-ffffff-fbf167-1c5e73-A4E3FA
@@ -29,8 +32,11 @@
         --primary-color: #fbf167;
         --secondary-color: #1c5e73;
         --accent-color: #a4e3fa;
+        --darker-primary-color: color-mix(in srgb, black 20%, var(--primary-color) 100%);
+
         --title-font: "Ubuntu", sans-serif;
         --body-font: "Poppins", sans-serif;
+        --code-font: "JetBrains Mono", monospace;
       }
 
       * {
@@ -132,6 +138,7 @@
       }
     </style>
 
+    <script type="module" src="./assets/number-input.js"></script>
     <script type="module" src="./assets/lab.js"></script>
   </head>
   <body>
