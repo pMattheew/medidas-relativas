@@ -5,18 +5,19 @@ import {
 } from "https://cdn.jsdelivr.net/gh/lit/dist@2/core/lit-core.min.js"
 
 export class NumberInput extends LitElement {
+  input
 
   static get properties() {
     return {
       "initial-value": { type: Number },
-    };
+    }
   }
 
   static styles = [
     css`
       :host {
         display: inline-flex;
-        margin-right: 0.2ch;
+        margin-right: 0.1em;
       }
       input {
         min-width: 1.5ch;
@@ -58,6 +59,7 @@ export class NumberInput extends LitElement {
 
   firstUpdated() {
     const input = this.shadowRoot.querySelector("input")
+    this.input = input
 
     function updateInputWidth() {
       input.style.width = input.value.length + "ch"
@@ -65,15 +67,29 @@ export class NumberInput extends LitElement {
 
     updateInputWidth()
     input.addEventListener("input", updateInputWidth)
+
+    document.documentElement.style.setProperty(
+      `--${this.id}`,
+      `unset`
+    )
   }
 
   render() {
     return html`
       <input
         type="number"
-        value=${this["initial-value"] ?? 2}
+        step="0.1"
+        value=${this["initial-value"] ?? 1}
+        @input=${this.setRootProperty}
       />
     `
+  }
+
+  setRootProperty() {
+    document.documentElement.style.setProperty(
+      `--${this.id}`,
+      `${this.input.value}em`
+    )
   }
 }
 customElements.define("number-input", NumberInput)
