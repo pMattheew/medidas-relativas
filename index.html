@@ -39,6 +39,19 @@
         --code-font: "JetBrains Mono", monospace;
       }
 
+      ::-webkit-scrollbar {
+        width: .6rem;
+      }
+      
+      ::-webkit-scrollbar-track {
+        background-color: rgba(130, 206, 230, 1); 
+      }
+      
+      ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background-color: var(--secondary-color); 
+      }
+
       * {
         box-sizing: border-box;
       }
@@ -59,7 +72,7 @@
       body {
         max-width: 1024px;
         margin: 0 auto;
-        padding: 2em 3em;
+        padding: 2em 3em 0 3em;
 
         font-family: var(--body-font);
         font-weight: 300;
@@ -136,6 +149,24 @@
           font-weight: 700;
         }
       }
+
+      div:has(app-lab) {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100svh;
+        padding-block: 2em;
+      }
+
+      
+      app-lab::-webkit-scrollbar-track {
+        background-color: var(--primary-color); 
+      }
+      
+      app-lab::-webkit-scrollbar-thumb {
+        background-color: var(--secondary-color); 
+      }
+      
     </style>
 
     <script type="module" src="./assets/number-input.js"></script>
@@ -200,7 +231,9 @@
           fonte de elementos pai.
         </p>
       </article>
-      <app-lab></app-lab>
+      <div>
+        <app-lab></app-lab>
+      </div>
     </main>
   </body>
 </html>
